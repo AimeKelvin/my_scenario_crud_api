@@ -1,6 +1,16 @@
 -- My Database
  for scenario of car wash service center
 
+ CREATE TABLE users (
+user_id INT PRIMARY KEY AUTO_INCREMENT,
+user_firstname VARCHAR(100) NOT NULL,
+user_lastname VARCHAR(100) NOT NULL,
+username VARCHAR(100) NOT NULL,
+password VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
+join_date TIMESTAMP
+);
+
 CREATE TABLE services(
     service_id INT PRIMARY KEY AUTO_INCREMENT,
     service_name VARCHAR(255) NOT NULL,
