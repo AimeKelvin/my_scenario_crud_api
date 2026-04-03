@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ServiceList from "../components/ServiceList";
+import ServiceUpdateForm from "../components/ServiceUpdateForm";
 
 function Services() {
   const [service_name, setName] = useState("");
@@ -25,8 +26,8 @@ function Services() {
 
   return (
     <div>
-      <h1>Services Page</h1>
-
+      <h1>Services Management</h1>
+      <h2>Add a service</h2>
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Service Name"
@@ -48,6 +49,8 @@ function Services() {
 
         <button type="submit">Add</button>
       </form>
+
+     
 
       <ServiceList/>
     </div>
