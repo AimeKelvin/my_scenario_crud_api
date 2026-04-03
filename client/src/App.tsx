@@ -1,51 +1,21 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Services from "./pages/ServicePage";
 
 function App() {
-  const [service_name, setName] = useState("");
-  const [service_description, setDescription] = useState("");
-  const [service_price, setPrice] = useState("");
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
-    const data = { service_name, service_description, service_price };
-
-    const res = await fetch("http://localhost:8080/api/services", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
-
-    const result = await res.json();
-    console.log(result);
-  };
-
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Service Name"
-          value={service_name}
-          onChange={(e) => setName(e.target.value)}
-        />
+    <BrowserRouter>
+      
+      <nav style={{ padding: "10px", background: "#eee" }}>
+        <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
+        <Link to="/services">Services</Link>
+      </nav>
 
-        <input
-          placeholder="Service Description"
-          value={service_description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
 
-        <input
-          placeholder="Price"
-          value={service_price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-
-        <button type="submit">Add</button>
-      </form>
-    </>
+    </BrowserRouter>
   );
 }
 
