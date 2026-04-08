@@ -1,8 +1,8 @@
 import express from "express"
 import db from "./config/db.js"
 import serviceRoutes from "./routes/service.routes.js"
+import carRoutes from "./routes/car.routes.js"
 import cors from "cors"
-
 
 
 const app = express()
@@ -11,6 +11,7 @@ let PORT = 8080
 
 app.use(express.json())
 app.use('/api', serviceRoutes)
+app.use('/api', carRoutes)
 
 
 app.listen(PORT, ()=>{

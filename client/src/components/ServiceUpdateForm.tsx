@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ServiceUpdateForm() {
-  const [service_id, setId] = useState("");
+  const [service_id] = useState("");
   const [service_name, setName] = useState("");
   const [service_description, setDescription] = useState("");
   const [service_price, setPrice] = useState("");

@@ -1,14 +1,12 @@
 import { useState } from "react";
 import ServiceList from "../components/ServiceList";
-import ServiceUpdateForm from "../components/ServiceUpdateForm";
 
 function Services() {
   const [service_name, setName] = useState("");
   const [service_description, setDescription] = useState("");
   const [service_price, setPrice] = useState("");
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
 
     const data = { service_name, service_description, service_price };
 
